@@ -13,10 +13,13 @@ class VueCompactAsset extends VueAsset {
     this.vueTemplateCompiler = await localRequire('vue-template-compiler', this.name);
     this.vue = await localRequire('@vue/component-compiler-utils', this.name);
 
+    // expand compact form
+    code = code.replace(regex, function (lang, body) {
+      return `<${types[lang]} lang='${lang}'>\n${body}</${types[lang]}>\n`;
+    })
+
     return this.vue.parse({
-      source: code.replace(regex, function (...match) {
-        return `<${types[match[1]]} lang='${match[1]}'>\n${match[2]}</${types[match[1]]}>\n`;
-      }),
+      source: code,
       needMap: this.options.sourceMaps,
       filename: this.relativeName, // Used for sourcemaps
       sourceRoot: '', // Used for sourcemaps. Override so it doesn't use cwd
