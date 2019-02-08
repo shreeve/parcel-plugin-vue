@@ -1,1 +1,1 @@
-# parcel-plugin-vue
+# parcel-plugin-vue-compact
