@@ -20,4 +20,4 @@ The following image shows what this looks like in Vue:
 
 As huge fans of [succinctness](http://www.paulgraham.com/power.html), we've chosen `pug`, `coffee`, and `stylus` for our Vue SFC's. This plugin just does one thing: It let's you specify just the `lang` left-justified, instead of having to embed it in angle brackets. That's it.
 
-<img width="729" alt="Vue component" src="https://user-images.githubusercontent.com/142875/52465955-c931e300-2b3d-11e9-85d0-3d7293237e1c.png">
+<img width="729" alt="Vue component" src="https://user-images.githubusercontent.com/142875/52466059-334a8800-2b3e-11e9-939f-a70728b2cdd5.png">
