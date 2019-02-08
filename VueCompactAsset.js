@@ -18,7 +18,7 @@ class VueCompactAsset extends VueAsset {
     // see if we need to inject stylus (this just runs once)
     if (inject === undefined) {
       let pkg = await this.getPackage();
-      inject = pkg && pkg.stylus && pkg.stylus.inject || null;
+      inject = pkg && pkg.vueCompact && pkg.vueCompact.stylusInject || null;
     }
 
     // expand compact form
