@@ -22,7 +22,7 @@ class VueCompactAsset extends VueAsset {
     }
 
     // expand compact form
-    code = code.replace(regex, function (lang, body) {
+    code = code.replace(regex, function (skip, lang, body) {
       if (lang === 'stylus' && inject) {
         body = inject + EOL + body;
       }
