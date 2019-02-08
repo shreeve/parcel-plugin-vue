@@ -1,4 +1,3 @@
-const { Asset } = require('parcel-bundler');
 const VueAsset = require('parcel-bundler/lib/assets/VueAsset');
 const localRequire = require('parcel-bundler/src/utils/localRequire');
 
