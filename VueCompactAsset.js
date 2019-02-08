@@ -1,20 +1,31 @@
 const VueAsset = require('parcel-bundler/lib/assets/VueAsset');
 const localRequire = require('parcel-bundler/src/utils/localRequire');
 
+const { EOL } = require('os');
 const regex = /(?<=\n|^)(pug|coffee|stylus)(?:.*\n)([\s\S]*?)(\n(?=\S)|$)/g;
 const types = {
   pug: 'template',
   coffee: 'script',
   stylus: 'style'
 };
+let inject;
 
 class VueCompactAsset extends VueAsset {
   async parse(code) {
     this.vueTemplateCompiler = await localRequire('vue-template-compiler', this.name);
     this.vue = await localRequire('@vue/component-compiler-utils', this.name);
 
+    // see if we need to inject stylus (this just runs once)
+    if (inject === undefined) {
+      let pkg = await this.getPackage();
+      inject = pkg && pkg.stylus && pkg.stylus.inject || null;
+    }
+
     // expand compact form
     code = code.replace(regex, function (lang, body) {
+      if (lang === 'stylus' && inject) {
+        body = inject + EOL + body;
+      }
       return `<${types[lang]} lang='${lang}'>\n${body}</${types[lang]}>\n`;
     })
 
