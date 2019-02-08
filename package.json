@@ -1,0 +1,9 @@
+{
+  "name": "parcel-plugin-vue",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "md5": "^2.2.1",
+    "terser": "^3.16.1"
+  }
+}
