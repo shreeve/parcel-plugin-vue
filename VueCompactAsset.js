@@ -2,7 +2,7 @@ const VueAsset = require('parcel-bundler/lib/assets/VueAsset');
 const localRequire = require('parcel-bundler/src/utils/localRequire');
 
 const { EOL } = require('os');
-const regex = /(?<=\n|^)(pug|coffee|stylus)(?:.*\n)([\s\S]*?)(\n(?=\S)|$)/g;
+const regex = /(?<=\n|^)(pug|coffee|stylus)(.*\n)([\s\S]*?)(\n(?=\S)|$)/g;
 const types = {
   pug: 'template',
   coffee: 'script',
@@ -22,11 +22,12 @@ class VueCompactAsset extends VueAsset {
     }
 
     // expand compact form
-    code = code.replace(regex, function (skip, lang, body) {
+    code = code.replace(regex, function (skip, lang, misc, body) {
       if (lang === 'stylus' && inject) {
         body = inject + EOL + body;
       }
-      return `<${types[lang]} lang='${lang}'>\n${body}</${types[lang]}>\n`;
+      misc = misc.includes('scoped') ? ' scoped' : '';
+      return `<${types[lang]} lang='${lang}'${misc}>\n${body}</${types[lang]}>\n`;
     })
 
     return this.vue.parse({
