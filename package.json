@@ -1,6 +1,19 @@
 {
   "name": "parcel-plugin-vue-compact",
   "version": "1.0.1",
+  "description": "Parcel support for Vue Compact files.",
   "main": "index.js",
-  "dependencies": { }
+  "scripts": {
+    "clean": "rm -rf node_modules package-lock.json yarn.lock yarn-error.log index.js"
+  },
+  "keywords": [],
+  "author": "Steve Shreeve <steve.shreeve@gmail.com>",
+  "license": "ISC",
+  "dependencies": {},
+  "peerDependencies": {
+    "@vue/component-compiler-utils": "^2.6.0",
+    "parcel-bundler": "^1.11.0",
+    "vue-template-compiler": "^2.6.9"
+  },
+  "devDependencies": {}
 }

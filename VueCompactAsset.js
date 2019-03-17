@@ -1,4 +1,4 @@
-const VueAsset = require('parcel-bundler/lib/assets/VueAsset');
+const VueAsset = require('parcel-bundler/src/assets/VueAsset');
 const localRequire = require('parcel-bundler/src/utils/localRequire');
 
 const { EOL } = require('os');
