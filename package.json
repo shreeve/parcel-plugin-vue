@@ -12,7 +12,6 @@
   "dependencies": {},
   "peerDependencies": {
     "@vue/component-compiler-utils": "^2.6.0",
-    "parcel-bundler": "^1.11.0",
     "vue-template-compiler": "^2.6.9"
   },
   "devDependencies": {}
